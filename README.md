@@ -31,4 +31,62 @@ There are 3 levels of difficulty, with each contract increasing in complexity an
 * **Level Three** is a `DeferredEquityPlan` that models traditional company stock plans. This contract will automatically manage 1000 shares with an annual distribution of 250 over 4 years for a single employee.
 
 ### Level One: The `AssociateProfitSplitter` Contract
+All contracts were tested on the loaclhost network on ganache but were also deployed on to the Ethereum Ropsten network (as for each of the other contracts) as seen below:
+![](images/Screenshot203600.png)
+
+![](images/Screenshot204317.png)
+
+Confirmations of deplpoyment as follows: 
+
+![](images/Screenshot185615.png)
+
+![](images/Screenshot192221.png)
+
+Using the deposit function, 300 wei was depostied into the contract and transferred to the three employee address, split equally.
+
+![](images/Screenshot191420.png)
+
+### Level Two: The `TieredProfitSplitter` Contract
+
+In this contract, rather than splitting the profits between Associate-level employees, will calculate rudimentary percentages for different tiers of employees (CEO, CTO, and Bob).
+
+Confirmation of deployment:
+
+![](images/Screenshot193336.png)
+
+690 wei was deposited into the contact and transferred to the different addresses following the aforementioned tiered payment plan, with the remainder of the deposit returning to the CEO.
+
+![](images/Screenshot191945.png)
+
+### Level Three: The `DeferredEquityPlan` Contract
+
+In this contract, there will be managing an employee's "deferred equity incentive plan" in which 1000 shares will be distributed over 4 years to the employee. We won't need to work with Ether in this contract, but we will be storing and setting amounts that represent the number of distributed shares the employee owns and enforcing the vetting periods automatically.
+
+This time the contract was deployed with just one employee address constructed:
+
+![](images/Screenshot205136.png)
+
+This gave us the current fakenow timestamp as well as the unlock_time timestamp:
+
+![](images/Screenshot192431.png)
+
+The fastforward() function was used to increase the fakenow time until it was greater than the unlock time, looking like this:
+
+![](images/Screenshot193046.png)
+
+Until finally, the distribute fuunction could be used to distrubite the first round of shares, looking like this:
+
+![](images/Screenshot193403.png)
+
+
+Overall, each contract worked as intended and every employee was happy. :D
+
+
+
+
+
+
+
+
+
 
